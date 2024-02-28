@@ -1,7 +1,6 @@
 package com.tripsservice.models;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -13,8 +12,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -37,16 +34,25 @@ public class TourismTripsEntity implements Serializable{
 	@Id()
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "trip_id")
-	Integer TripId;
+	Integer tripId;
 	
-	@Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "trip_date", nullable = false, updatable = false)
-	Date tripDate;
+//	@Temporal(TemporalType.TIMESTAMP)
+//    @Column( name = "trip_date", nullable = false, updatable = false)
+//	Date tripDate;
+	
+	@Column( name = "trip_date", nullable = false )
+	String tripDate;
+	
+	@Column( name = "trip_time", nullable = false )
+	String tripTime;
 	
 	@OneToMany(mappedBy = "trip" ,cascade = CascadeType.ALL , fetch = FetchType.LAZY )
-	List<TripReservationEntity> tripsReservation ;
+	List<TripReservationEntity> tripsReservation;
 	
 	@OneToMany(mappedBy = "trip" ,cascade = CascadeType.ALL , fetch = FetchType.LAZY )
-	List<RatingTripEntity> ratingTripEntities ;
+	List<RatingTripEntity> ratingTripEntities;
+	
+	@Column( nullable = false )
+	String places;
 	
 }

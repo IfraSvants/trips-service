@@ -6,9 +6,12 @@ import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 
 import com.tripsservice.dto.TourismTripsDto;
 
+
 public interface TourismTripsService {
 	
 	List<TourismTripsDto> findAll();
+	
+	List<TourismTripsDto> findByTripDate(String tripDate);
 	
 	TourismTripsDto save( TourismTripsDto tourismTripsDto );
 	
