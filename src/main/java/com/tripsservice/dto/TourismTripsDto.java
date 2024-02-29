@@ -20,4 +20,6 @@ public class TourismTripsDto {
 	
 	String places;
 	
+	String ville;
+	
 }

@@ -72,5 +72,16 @@ public class TourismTripsServiceImpl implements TourismTripsService {
 				.collect(Collectors.toList())
 				;
 	}
+
+	@Override
+	public List<TourismTripsDto> findByVilleAndTripDate(String ville, String tripDate) {
+		
+		return tourismTripsDao
+			.findByVilleAndTripDate( ville ,tripDate )
+			.stream().map( el->modelMapper.map(el, TourismTripsDto.class) )
+			.collect(Collectors.toList())
+			;
+		
+	}
 	
 }

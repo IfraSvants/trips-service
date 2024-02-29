@@ -10,4 +10,6 @@ public interface TourismTripsDao extends JpaRepository< TourismTripsEntity, Inte
 
 	List<TourismTripsEntity> findByTripDate(String tripDate);
 	
+	List<TourismTripsEntity> findByVilleAndTripDate(String ville, String tripDate);
+	
 }

@@ -13,6 +13,8 @@ public interface TourismTripsService {
 	
 	List<TourismTripsDto> findByTripDate(String tripDate);
 	
+	List<TourismTripsDto> findByVilleAndTripDate(String ville, String tripDate);
+	
 	TourismTripsDto save( TourismTripsDto tourismTripsDto );
 	
 	TourismTripsDto update( TourismTripsDto tourismTripsDto , Integer id ) throws NotFoundException;

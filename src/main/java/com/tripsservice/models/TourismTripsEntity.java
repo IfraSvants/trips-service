@@ -46,6 +46,9 @@ public class TourismTripsEntity implements Serializable{
 	@Column( name = "trip_time", nullable = false )
 	String tripTime;
 	
+	@Column( nullable = false )
+	String ville;
+	
 	@OneToMany(mappedBy = "trip" ,cascade = CascadeType.ALL , fetch = FetchType.LAZY )
 	List<TripReservationEntity> tripsReservation;
 	
